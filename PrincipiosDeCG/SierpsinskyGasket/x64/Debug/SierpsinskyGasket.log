@@ -1,0 +1,7 @@
+﻿  Application.cpp
+c:\users\alejandro\documents\mydir\mydir\principiosdecg\sierpsinskygasket\src\application.cpp(20): warning C4309: 'argument': truncation of constant value
+c:\users\alejandro\documents\mydir\mydir\principiosdecg\sierpsinskygasket\src\application.cpp(228): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alejandro\documents\mydir\mydir\principiosdecg\sierpsinskygasket\src\application.cpp(229): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alejandro\documents\mydir\mydir\principiosdecg\sierpsinskygasket\src\application.cpp(243): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alejandro\documents\mydir\mydir\principiosdecg\sierpsinskygasket\src\application.cpp(244): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  SierpsinskyGasket.vcxproj -> C:\Users\Alejandro\Documents\myDir\myDir\PrincipiosDeCG\x64\Debug\SierpsinskyGasket.exe

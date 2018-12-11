@@ -1,0 +1,13 @@
+﻿Build started 3/10/2014 2:15:55 AM.
+     1>Project "C:\Users\pedrocp\Desarrollo\SEA\Graficacion3\LIBS\Simple OpenGL Image Library\projects\VC9\SOIL.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\pedrocp\Desarrollo\SEA\Graficacion3\LIBS\Simple OpenGL Image Library\projects\VC9\lib\SOIL.lib" /NOLOGO Debug\image_DXT.obj
+         Debug\image_helper.obj
+         Debug\SOIL.obj
+         Debug\stb_image_aug.obj
+         SOIL.vcxproj -> C:\Users\pedrocp\Desarrollo\SEA\Graficacion3\LIBS\Simple OpenGL Image Library\projects\VC9\lib\SOIL.lib
+     1>Done Building Project "C:\Users\pedrocp\Desarrollo\SEA\Graficacion3\LIBS\Simple OpenGL Image Library\projects\VC9\SOIL.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.17
