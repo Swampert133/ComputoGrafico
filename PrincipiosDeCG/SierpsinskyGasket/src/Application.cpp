@@ -16,7 +16,7 @@ black(0, 0, 0, 255),
 yellow(255,255,0,0),
 purple(255,0,255,0),
 green( 0, 255, 0, 0),
-blue( 0, 0, 255, 0)
+blue( 0, 0, 125, 0)
 {
 }
 
@@ -142,7 +142,7 @@ void Application::line_To(const int &xd, const int&yd)
 	move_To(xd, yd);
 }
 
-void Application::SierpinskyGasket(Vector2d a, Vector2d b, Vector2d c, int subDiv)
+void Application::SierpinskyGasket(Vector3D a, Vector3D b, Vector3D c, int subDiv)
 {
 	if (subDiv <= 0)
 	{
@@ -152,21 +152,107 @@ void Application::SierpinskyGasket(Vector2d a, Vector2d b, Vector2d c, int subDi
 	}
 	else
 	{
-		Vector2d ab = PuntoMedioVec(a, b);
-		Vector2d bc = PuntoMedioVec(b, c);
-		Vector2d ca = PuntoMedioVec(c, a);
+		Vector3D ab = PuntoMedioVec(a, b);
+		Vector3D bc = PuntoMedioVec(b, c);
+		Vector3D ca = PuntoMedioVec(c, a);
 		SierpinskyGasket(a, ab, ca, subDiv - 1);
 		SierpinskyGasket(ab, b, bc, subDiv - 1);
 		SierpinskyGasket(ca, bc, c, subDiv - 1);
 	}
 }
 
-Vector2d Application::PuntoMedioVec(Vector2d a, Vector2d b)
+Vector3D Application::PuntoMedioVec(Vector3D a, Vector3D b)
 {
-	Vector2d pmvec;
+	Vector3D pmvec;
 	pmvec.x = (a.x + b.x) / 2;
 	pmvec.y = (a.y + b.y) / 2;
 	return pmvec;
+}
+
+void Application::drawArray(const std::vector<Vector3D>& v, Type type)
+{
+	setColor(yellow);
+	int translationx;
+	int translationy;
+	switch (type)
+	{
+	case POINTS:
+		translationx = -400; translationy = 100;
+		for (Vector3D vactual : v)
+			PutPixel(translationx + vactual.x,translationy + vactual.y);
+		break;
+	case LINES:
+		translationx = -200; translationy = 350;
+		for (int i = 0; i < v.size() -1; i += 2)
+		{
+			move_To(translationx + v[i].x, translationy + v[i].y);
+			line_To(translationx + v[i + 1].x, translationy + v[i + 1].y);
+		}
+		break;
+	case LINESTRIP:
+		translationx = 200; translationy = 350;
+		move_To(translationx + v[0].x, translationy + v[0].y);
+		for (int i = 1; i < v.size(); ++i)
+		{
+			line_To(translationx + v[i].x, translationy + v[i].y);
+		}
+		break;
+	case LINELOOP:
+		translationx = 400; translationy = 100;
+		move_To(translationx + v[0].x, translationy + v[0].y);
+		for (int i = 1; i < v.size(); ++i)
+		{
+			line_To(translationx + v[i].x, translationy + v[i].y);
+		}
+		line_To(translationx + v[0].x, translationy + v[0].y);
+		break;
+	case TRIANGLE:
+		translationx = -300; translationy = -300;
+		for (int i = 0; i < v.size() - 2; i += 3)
+		{
+			triangle(translatev(vectorcase[i],translationx,translationy),
+				     translatev(vectorcase[i+1], translationx, translationy),
+				     translatev(vectorcase[i+2], translationx, translationy));
+		}
+		break;
+	case TRIANGLEFAN:
+		translationx = 0; translationy = -300;
+		if (vectorcase.size() < 3)
+			break;
+		else
+		{
+			triangle(translatev(vectorcase[0], translationx, translationy),
+				     translatev(vectorcase[1], translationx, translationy),
+				     translatev(vectorcase[2], translationx, translationy));
+			for (int i = 3; i < vectorcase.size(); ++i)
+			{
+				move_To(vectorcase[i - 1].x + translationx, vectorcase[i - 1].y + translationy);
+				line_To(vectorcase[i].x + translationx, vectorcase[i].y + translationy);
+				line_To(vectorcase[0].x + translationx, vectorcase[0].y + translationy);
+			}
+		}
+		break;
+	case TRIANGLESTRIP:
+		translationx = 300; translationy = -300;
+		if (vectorcase.size() < 3)
+			break;
+		else
+		{
+			triangle(translatev(vectorcase[0], translationx, translationy),
+				translatev(vectorcase[1], translationx, translationy),
+				translatev(vectorcase[2], translationx, translationy));
+			for (int i = 3; i < vectorcase.size(); ++i)
+			{
+				move_To(vectorcase[i - 1].x + translationx, vectorcase[i - 1].y + translationy);
+				line_To(vectorcase[i].x + translationx, vectorcase[i].y + translationy);
+				line_To(vectorcase[i-2].x + translationx, vectorcase[i-2].y + translationy);
+			}
+		}
+		break;
+	default:
+		std::cout << "not a valid type" << std::endl;
+		break;
+	}
 }
 
 void Application::setColor(Color color)
@@ -217,6 +303,23 @@ void Application::triangle(const Vector2d v, const Vector2d v1, const Vector2d v
 	line_To(v.x, v.y);
 }
 
+void Application::triangle(const Vector3D v, const Vector3D v1, const Vector3D v2)
+{
+	move_To(v.x, v.y);
+	line_To(v1.x, v1.y);
+	line_To(v2.x, v2.y);
+	line_To(v.x, v.y);
+}
+
+Vector3D Application::translatev(const Vector3D v, const int &x, const int &y)
+{
+	Vector3D translatedv;
+	translatedv.x = v.x + x;
+	translatedv.y = v.y + y;
+	translatedv.z = v.z;
+	return translatedv;
+}
+
 void Application::Figure(const int &lados, const int &r)
 {
 	setColor(purple);
@@ -248,10 +351,18 @@ void Application::CreateFigure(const int &lados, const int &r, const int &x, con
 }
 void Application::set()
 {
-	Vector2d a(0, 500);
-	Vector2d b(-500, -200);
-	Vector2d c(500, -200);
+	Vector3D a(0, 250, 1);
+	Vector3D b(-250, -150, 1);
+	Vector3D c(250, -150, 1);
 	SierpinskyGasket(a, b, c, 3);
+	Vector3D d(-80, -50, 1); 
+	vectorcase.push_back(d);
+	Vector3D e(-50, 50, 1);
+	vectorcase.push_back(e);
+	Vector3D f(50, -50, 1);
+	vectorcase.push_back(f);
+	Vector3D g(80, 50, 1);
+	vectorcase.push_back(g);
 }
 
 void Application::draw()
@@ -260,6 +371,13 @@ void Application::draw()
 	setColor(green);
 	for (int i = 0; i < vertices.size(); i += 3)
 		triangle(vertices[i], vertices[i + 1], vertices[i + 2]);
+	drawArray(vectorcase, POINTS);
+	drawArray(vectorcase, LINES);
+	drawArray(vectorcase, LINESTRIP);
+	drawArray(vectorcase, LINELOOP);
+	drawArray(vectorcase, TRIANGLE);
+	drawArray(vectorcase, TRIANGLEFAN);
+	drawArray(vectorcase, TRIANGLESTRIP);
 } 
 
 Application::~Application()

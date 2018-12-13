@@ -1,16 +1,1 @@
-﻿  Application.cpp
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(20): warning C4309: 'argument': truncation of constant value
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(62): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(62): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(63): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(63): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(250): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(251): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(265): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(266): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\figuras\src\application.cpp(279): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  BaseApplication.cpp
-  Pixel.cpp
-  ShaderFuncs.cpp
-  Generating Code...
-  Figuras.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\PrincipiosDeCG\x64\Debug\Figuras.exe
+﻿  Figuras.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\ComputoGrafico\PrincipiosDeCG\x64\Debug\Figuras.exe

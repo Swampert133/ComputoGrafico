@@ -1,3 +1,1 @@
-﻿  Application.cpp
-c:\users\alejandro\desktop\comgrafolder\principiosdecg\linecircle\src\application.cpp(17): warning C4309: 'argument': truncation of constant value
-  LineCircle.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\PrincipiosDeCG\x64\Debug\LineCircle.exe
+﻿  LineCircle.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\ComputoGrafico\PrincipiosDeCG\x64\Debug\LineCircle.exe

@@ -1,2 +1,9 @@
-﻿  Pixel.cpp
-  MidpointLine.vcxproj -> C:\Users\Alejandro\Documents\myDir\myDir\PrincipiosDeCG\x64\Debug\MidpointLine.exe
+﻿  Application.cpp
+c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\midpointline\src\application.cpp(18): warning C4309: 'argument': truncation of constant value
+c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\midpointline\src\application.cpp(166): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\midpointline\src\application.cpp(167): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  BaseApplication.cpp
+  Pixel.cpp
+  ShaderFuncs.cpp
+  Generating Code...
+  MidpointLine.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\ComputoGrafico\PrincipiosDeCG\x64\Debug\MidpointLine.exe
