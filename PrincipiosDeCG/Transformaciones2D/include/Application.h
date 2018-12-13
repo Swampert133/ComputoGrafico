@@ -11,8 +11,10 @@ private:
 	std::vector<Vector2d> TriangleV1;
 	std::vector<Vector2d> TriangleV2;
 	std::vector<Vector3D> vertices;
-	int f1, f2, f3, f4, f5;
-	bool firstgo = true;
+	std::vector<Vector3D> vTransformados;
+	int i = 0;
+	int angle = 1;
+	bool positive = true;
 	int centerX, centerY;
 	int currentPositionX, currentPositionY;
 	Color currentcolor;
@@ -28,6 +30,7 @@ public:
 	void draw();
 	void set();
 	void ClearScreen();
+	void update();
 	void line(const int&x1, const int &y1);
 	void Figure(const int &lados, const int &r);
 	void CreateFigure(const int &lados, const int &r, const int &x, const int&y);

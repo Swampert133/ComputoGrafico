@@ -1,8 +1,1 @@
-﻿  Application.cpp
-c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\sierpsinskygasket\include\application.h(28): warning C4091: 'static ': ignored on left of 'Application::Type' when no variable is declared
-c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\sierpsinskygasket\src\application.cpp(20): warning C4309: 'argument': truncation of constant value
-c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\sierpsinskygasket\src\application.cpp(331): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\sierpsinskygasket\src\application.cpp(332): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\sierpsinskygasket\src\application.cpp(346): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alejandro\desktop\comgrafolder\computografico\principiosdecg\sierpsinskygasket\src\application.cpp(347): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  SierpsinskyGasket.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\ComputoGrafico\PrincipiosDeCG\x64\Debug\SierpsinskyGasket.exe
+﻿  SierpsinskyGasket.vcxproj -> C:\Users\Alejandro\Desktop\ComGrafolder\ComputoGrafico\PrincipiosDeCG\x64\Debug\SierpsinskyGasket.exe

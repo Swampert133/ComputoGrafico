@@ -4,6 +4,7 @@
 #include <utility>
 #include <stdlib.h>
 #include <time.h>
+#include "Matrix3.h"
 
 
 Application::Application() : BaseApplication(),
@@ -256,18 +257,42 @@ void Application::CreateFigure(const int &lados, const int &r, const int &x, con
 }
 void Application::set()
 {
-	Vector3D a(0, 500, 1);
-	Vector3D b(-500, -200, 1);
-	Vector3D c(500, -200, 1);
+	Vector3D a(0, 250, 1);
+	Vector3D b(-250, -150, 1);
+	Vector3D c(250, -150, 1);
 	SierpinskyGasket(a, b, c, 3);
+	setColor(green);
+}
+
+void Application::update()
+{
+	vTransformados.clear();
+	if (i > 400)
+		positive = false;
+	if (i < -400)
+		positive = true;
+	Vector3D vector(i, i, 1);
+	Matrix3 translatedMatrix = Matrix3::Translate(vector);
+	double number = .5;
+	Matrix3 scaledMatrix = Matrix3::Scale(number);
+	Matrix3 rotatedMatrix = Matrix3::Rotation(angle);
+	Matrix3 accumMatrix = translatedMatrix * scaledMatrix;
+	Matrix3 aM2 = accumMatrix * rotatedMatrix;
+	for (int i = 0; i < vertices.size(); ++i)
+	{
+		Vector3D tvertex = aM2 * vertices[i];
+		vTransformados.push_back(tvertex);
+	}
+	i += (positive) ? 10 : -10;
+	angle += 5;
 }
 
 void Application::draw()
 {
 	ClearScreen();
-	setColor(green);
-	for (int i = 0; i < vertices.size(); i += 3)
-		triangle(vertices[i], vertices[i + 1], vertices[i + 2]);
+	for (int i = 0; i < vTransformados.size(); i += 3)
+		triangle(vTransformados[i], vTransformados[i + 1], vTransformados[i + 2]);
+
 } 
 
 Application::~Application()
